@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutModule } from './layout/layout.module';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  {
-    path: '', component: LayoutComponent, children: [
-      // { path: '', redirectTo: 'home', pathMatch: 'full' },
-      // { path: 'home', component: HomeComponent },
-    ]
-  }
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'movie', loadChildren: () => import('./pages/movie/movie.module').then(m => m.MovieModule) },
+  { path: '**', component: HomeComponent }
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes) , LayoutModule],
+  imports: [RouterModule.forRoot(routes), LayoutModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
