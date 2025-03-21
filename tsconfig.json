@@ -23,7 +23,7 @@
       "dom"
     ],
     "types": ["node"],
-    "skipLibCheck": true,
+   
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
