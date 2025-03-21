@@ -7,16 +7,19 @@ import { RouterModule } from '@angular/router';
 import { LayoutModule } from "./layout/layout.module";
 import { HomeComponent } from './pages/home/home.component';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    TabMenuModule
+    TabMenuModule,
+    SharedModule
 ],
   providers: [],
   bootstrap: [AppComponent]
