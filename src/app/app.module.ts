@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { LayoutModule } from "./layout/layout.module";
 import { HomeComponent } from './pages/home/home.component';
-
+import { TabMenuModule } from 'primeng/tabmenu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +15,8 @@ import { HomeComponent } from './pages/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule
+    LayoutModule,
+    TabMenuModule
 ],
   providers: [],
   bootstrap: [AppComponent]
