@@ -1,0 +1,24 @@
+input {
+
+    width: 100%;
+    font-size: initial;
+
+    &.p-inputtext {
+        border: 1px solid $elementBorderColor;
+        border-radius: $elementRadius;
+        padding: $elementPadding;
+        height: $elementHight;
+
+        &:focus:not(:read-only),
+        &:hover:not(:read-only) {
+            border: 1px solid $primaryColor;
+        }
+
+        &:disabled,
+        &:read-only {
+            background-color: $elementDisabledBg;
+        }
+    }
+
+}
+

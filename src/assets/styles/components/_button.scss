@@ -1,0 +1,128 @@
+@mixin disabledClass($outLine: false) {
+  // color: var(--grey-500) !important;
+  // opacity: 1;
+
+  // .btn_label {
+  // color: var(--grey-500) !important;
+  // }
+
+  // @if$outLine {
+  // border-color: var(--grey-500) !important;
+  // }
+
+  // @else {
+  // background-color: var(--grey-200) !important;
+  // }
+}
+
+@mixin btnStyle($bg, $color, $br: unset) {
+  background-color: $bg;
+  border: 1px solid $br;
+
+  color: $color !important;
+
+  .btn_label {
+    color: $color !important;
+  }
+
+  &:disabled {
+
+    @if $br=='unset' {
+
+      @include disabledClass($outLine :false);
+
+    }
+
+    @else {
+      @include disabledClass($outLine :true);
+
+    }
+
+  }
+}
+
+
+.cus_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  @include borderRadius($elementRadius);
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  height: $elementHight;
+
+  // width: 100%;
+  &.border-sm {
+    border-radius: 4px !important;
+  }
+
+  .json_icon {
+    height: 26px;
+
+  }
+
+  .btn_icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+
+    &_18 {
+      width: 18px;
+      height: 18px;
+    }
+
+    &_22 {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  .pi {
+    font-size: $smText;
+
+
+  }
+
+  &.p-button-icon-only::after {
+    content: none !important;
+
+  }
+
+  .btn_label {
+
+    @include font($mdText, 500, transparent);
+  }
+
+  &.primBtn {
+
+    @include btnStyle($bg: $primaryColor, $color: $whiteColor);
+  }
+
+  &.primOutlined {
+
+    @include btnStyle($bg: $whiteColor, $color: $primaryColor, $br: $primaryColor);
+
+  }
+
+  &.primLight {
+
+    @include btnStyle($bg: $primaryColorLight, $color: $primaryColor);
+
+  }
+
+  &.secBtn {
+
+    @include btnStyle($bg: $secondaryColor, $color: $whiteColor, $br: $secondaryColor);
+
+  }
+
+  &.secOutlined {
+
+    @include btnStyle($bg: $whiteColor, $color: $secondaryColor, $br: $secondaryColor);
+
+  }
+
+
+}
