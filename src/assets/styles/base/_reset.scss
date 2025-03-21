@@ -14,8 +14,8 @@
 // }
 
 @font-face {
-  font-family: Samim;
-  src: url('/fonts/Samim\ Regular.ttf') format("opentype");
+  font-family: Poppins;
+  src: url('../../fonts/Poppins-Regular.ttf') format("opentype");
 }
 
 html {
@@ -28,15 +28,16 @@ body {
   text-align: start;
   font-size: 14px;
   @include transition(0.3s);
+  background-color: $primaryBgColor;
 }
 
 [dir="ltr"] {
-  font-family: ('Roboto', sans-serif, 'primeicons') !important;
+  font-family: ('Poppins', sans-serif, 'primeicons') !important;
 
 }
 
 [dir="rtl"] {
-  font-family: 'Samim', sans-serif, 'primeicons' !important;
+  font-family: 'Poppins', sans-serif, 'primeicons' !important;
 
 }
 
