@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
     },
 
     effect: 'cube',
+    cubeEffect: {
+      slideShadows: true,
+    },
     initialSlide: 1,
     loop:true,
     slideToClickedSlide:true,
@@ -58,7 +61,7 @@ export class HomeComponent implements OnInit {
       }
     },
 
-    grabCursor: true,
+    // grabCursor: true,
     autoplay: {
       delay: 5000,
     },

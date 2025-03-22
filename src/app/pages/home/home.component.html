@@ -22,7 +22,7 @@
 
                     <swiper (swiper)="onSwiper($event)" (slideChange)="onSlideChange()" [config]="config">
                         <ng-template swiperSlide>
-                            <app-img-handler
+                            <app-img-handler routerLink="/movie/details/1"
                                 [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
                                 class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
 
