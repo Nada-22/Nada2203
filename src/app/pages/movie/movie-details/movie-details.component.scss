@@ -37,6 +37,15 @@
             font-size: 12px;
             margin-inline-end: .2rem;
         }
+        .film-tags{
+            display: flex;
+            gap: .4rem;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: start;
+            margin-top: .5rem;
+            max-width: 80%;
+        }
     }
 
     .main-title{

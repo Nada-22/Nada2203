@@ -1,18 +1,20 @@
 @mixin disabledClass($outLine: false) {
-  // color: var(--grey-500) !important;
-  // opacity: 1;
+  // color: $elementDisabledBg !important;
+  opacity: 1;
 
-  // .btn_label {
-  // color: var(--grey-500) !important;
-  // }
+  .btn_label {
+  color: $elementDisabledBg !important;
+  }
 
-  // @if$outLine {
-  // border-color: var(--grey-500) !important;
-  // }
+  @if$outLine {
+  border-color: $elementDisabledBg !important;
+  }
 
-  // @else {
-  // background-color: var(--grey-200) !important;
-  // }
+  @else {
+  background-color: $elementDisabledBg !important;
+  border-color: $elementDisabledBg !important;
+
+  }
 }
 
 @mixin btnStyle($bg, $color, $br: unset) {

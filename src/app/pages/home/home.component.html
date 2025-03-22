@@ -23,7 +23,7 @@
                 <ng-template pTemplate="item" let-item>
 
 
-                    <span class="" [routerLink]="[]" [queryParams]="{category:item.id}"
+                    <span class="" [routerLink]="[]" [queryParams]="{category:item.id}" [queryParamsHandling]="'merge'"
                         (click)="getCurrentCategoryFilms(item.id)" [routerLinkActiveOptions]="{exact:true}"
                         routerLinkActive="active-item">
 
@@ -46,7 +46,8 @@
                                     <app-img-handler [src]="film.FilmImage" class="img-fluid" alt="" width="240px"
                                         height="350px">
                                     </app-img-handler>
-                                    <p class="cursor-pointer" [routerLink]="['/movie/details',film.FilmID]">
+                                    <p class="cursor-pointer" [routerLink]="['/movie','details']"
+                                        [queryParams]="{film:film.FilmID}" [queryParamsHandling]="'merge'">
                                         {{film.FilmName}}</p>
                                     <div class="film-tags">
                                         <div class="grey-badge" *ngFor="let tag of film.Tags.slice(0,3)">{{tag}}</div>

@@ -5,7 +5,7 @@ import { BranchesComponent } from './branches/branches.component';
 
 const routes: Routes = [
   
- {path:'details/:id' , component:MovieDetailsComponent},
+ {path:'details' , component:MovieDetailsComponent},
  {path:'branches' , component:BranchesComponent}
 ];
 

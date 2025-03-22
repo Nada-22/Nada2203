@@ -1,8 +1,7 @@
-<div class="">
+<div class="" *ngIf="currentFilm">
     <!-- [style.background-image]="'url(https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg)'" -->
     <div class="banner-wrap">
-        <app-img-handler [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
-            width="350px" height="50vh" alt="Demo image">
+        <app-img-handler [src]="currentFilm.FilmImage" width="350px" height="50vh" alt="Demo image">
 
         </app-img-handler>
         <div class="banner-content">
@@ -11,30 +10,29 @@
 
             <div class="banner-actions">
                 <img src="assets/imgs/Play.svg" alt="">
-                <button pButton class="primBtn" [label]="'Get Ticket'" [icon]="'pi pi-ticket'" routerLink="/movie/branches"> </button>
+                <button pButton class="primBtn" [label]="'Get Ticket'" [icon]="'pi pi-ticket'"
+                    routerLink="/movie/branches" [queryParamsHandling]="'merge'"
+                    [disabled]="!currentFilm.HasTicketsAvail"> </button>
             </div>
         </div>
     </div>
 
     <div class="movie-content">
         <div class="movie-info">
-            <div class="grey-badge">13+</div>
+            <div class="film-tags">
+                <div class="grey-badge" *ngFor="let tag of currentFilm.Tags">{{tag}}</div>
+            </div>
             <div class="movie-time">
-    
+
                 <i class="pi pi-clock"></i>
-                <span>2h 13m</span>
+                <span>{{currentFilm.FilmDuration}}</span>
             </div>
 
         </div>
 
-        <h2 class="main-title">Spider-Man: No Way Home</h2>
+        <h2 class="main-title">{{currentFilm.FilmName}}</h2>
         <p>
-            With Spider-Man's identity now revealed, our friendly neighborhood web-slinger is unmasked and no longer
-            able to
-            separate his normal life as Peter Parker from the high stakes of being a superhero.
-            When Peter asks for help from Doctor Strange, the stakes become even more dangerous, forcing him to discover
-            what it.
-            Less
+            {{currentFilm.FilmDescription}}
         </p>
     </div>
 </div>

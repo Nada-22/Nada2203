@@ -15,13 +15,13 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 })
 export class HomeComponent implements OnInit {
 
-  moviesData!: MovieI;
   items: MenuItem[] = [
     { label: 'All Movies', routerLink: '/home' },
     { label: 'For Kids', routerLink: '/forKids' },
     { label: 'Select Branch', routerLink: '/movie/branches' },
-
+    
   ]
+  moviesData!: MovieI;
   categoriesLabels!: MenuItem[];
   currentCategoryFilms!: FilmI[];
   config: SwiperOptions = {
