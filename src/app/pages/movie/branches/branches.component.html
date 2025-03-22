@@ -1,38 +1,37 @@
 <div class="container-fluid">
 
     <div class="page-cotrols">
-        <i class="pi pi-arrow-left" routerLink="/home"></i>
+        <i class="pi pi-arrow-left" (click)="location.back()" ></i>
         <span>Select Branch</span>
 
     </div>
 
     <span class="search p-input-icon-left branch-search">
         <i class="pi pi-search"></i>
-        <input pInputText type="text" placeholder="Search keyword" />
+        <input pInputText type="text" #branch (input)="filterBranches(branch.value)" placeholder="Search keyword" />
     </span>
 
 
     <div class="row branches">
 
-        <ng-container *ngIf="0;else emptyData">
-            <div class="col-md-3" *ngFor="let item of [1,2,3,4,5]">
+        <ng-container *ngIf="uiCinemas.length>0;else emptyData">
+            <div class="col-md-3" *ngFor="let item of uiCinemas">
                 <div class="branch-item">
                     <div class="branch-image">
-                        <img src="https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg"
-                            alt="branch image">
+                        <img [src]="item.CinemaImage" alt="branch image" class="img-fluid">
                     </div>
                     <div class="branch-content">
                         <div class="branch-name">
-                            <span>SM City Marikina</span>
+                            <span>{{item.CinemaName}}</span>
                             <div class="branch-rate">
                                 <i class="pi pi-star-fill"></i>
-                                <span>4.9</span>
+                                <span>{{item.CinemaRating}}</span>
 
                             </div>
                         </div>
                         <div class="branch-info">
-                            <p> <i class="pi pi-ticket me-1"></i>PHP 279</p>
-                            <p><i class="pi pi-exclamation-circle me-1"></i>6 Cinemas</p>
+                            <p> <i class="pi pi-ticket me-1"></i>{{item.TicketsAvailable}}</p>
+                            <p><img src="assets/imgs/Recliner.svg" alt="">{{item.CinemaHalls}} <span>Cinemas</span></p>
 
 
                         </div>

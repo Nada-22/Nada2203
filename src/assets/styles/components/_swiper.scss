@@ -3,9 +3,10 @@
     &-button-next,
     &-button-prev {
 
-        border-radius: 40%;
-
+        border-radius: 50%;
+        height: 2rem !important;
         background-color: $thirdColor;
+
         // opacity: .4;
         &::after {
             font-size: $mdText !important;
@@ -25,9 +26,10 @@
     }
 
     &-slide-active {
+
         // transform: scale(1.6);
         /* Zoom in by 10% */
-        img{
+        img {
 
             z-index: 2;
             border: 1px solid $primaryColor;

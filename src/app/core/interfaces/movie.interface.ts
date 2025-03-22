@@ -1,7 +1,8 @@
 export interface MovieI {
     ComingSoonBanner: string,
     ComingSoonTitle: string,
-    Categories: CategoryI[]
+    Categories: CategoryI[];
+    Cinemas: CinemaI[];
 }
 
 export interface CategoryI {
@@ -22,4 +23,14 @@ export interface FilmI {
     FilmDuration: string,
     FilmDescription: string;
 
+}
+
+export interface CinemaI {
+
+    CinemaHalls: number,
+    CinemaID: number,
+    CinemaImage: string,
+    CinemaName: string
+    CinemaRating: string
+    TicketsAvailable: number
 }

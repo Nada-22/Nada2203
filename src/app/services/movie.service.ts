@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, shareReplay, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { MovieI } from '../core/interfaces/movie.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class MovieService {
   // }
 
     // create shared observable directly
-    public moviesData$: Observable<any> = this.http.get(this.apiUrl).pipe(
+    public moviesData$: Observable<MovieI> = this.http.get<MovieI>(this.apiUrl).pipe(
       shareReplay({ bufferSize: 1, refCount: false })
     );
 
