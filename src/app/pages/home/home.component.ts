@@ -97,6 +97,8 @@ export class HomeComponent implements OnInit {
       next: (data) => {
         this.moviesData = data;
     
+        console.log(data);
+        
         this.getMovieCategories();
         this._configService.setLoading(false);
       }

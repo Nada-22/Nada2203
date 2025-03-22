@@ -14,6 +14,7 @@ export class MovieDetailsComponent implements OnInit {
 
   moviesData!: MovieI;
   currentFilm!: FilmI;
+  isExpanded=false;
   constructor(
     private _movieService: MovieService,
     private route: ActivatedRoute,
@@ -48,5 +49,9 @@ export class MovieDetailsComponent implements OnInit {
 
       }
     })
+  }
+
+  toggleDescription() {
+    this.isExpanded = !this.isExpanded;
   }
 }

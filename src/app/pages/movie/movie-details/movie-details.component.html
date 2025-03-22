@@ -31,8 +31,14 @@
         </div>
 
         <h2 class="main-title">{{currentFilm.FilmName}}</h2>
-        <p>
-            {{currentFilm.FilmDescription}}
-        </p>
+        <div>
+            <p class="film-desc" [ngClass]="{ 'clamp': !isExpanded }">
+                {{ currentFilm.FilmDescription}}
+                <span class="text-primary more-text cursor-pointer" (click)="toggleDescription()">
+                  {{ isExpanded ? 'Less' : 'More' }}
+                </span>
+            </p>
+
+        </div>
     </div>
 </div>
