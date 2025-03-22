@@ -13,14 +13,18 @@ export class BranchesComponent implements OnInit {
 
   cinemas: CinemaI[] = [];
   uiCinemas: CinemaI[] = [];
-  constructor(private _movieService: MovieService , private route:ActivatedRoute ,public location: Location) { }
+  constructor(
+    private _movieService: MovieService,
+    private route: ActivatedRoute,
+    public location: Location
+  ) { }
 
   ngOnInit(): void {
 
     this.getAllMovies();
 
     console.log(this.route.pathFromRoot);
-    
+
   }
 
   getAllMovies() {
@@ -38,7 +42,7 @@ export class BranchesComponent implements OnInit {
     this.uiCinemas = this.cinemas.filter(cinema => cinema.CinemaName.toLowerCase().includes(filterKey.toLowerCase()))
   }
 
-  goBack(){
+  goBack() {
     this.location.back()
   }
 }

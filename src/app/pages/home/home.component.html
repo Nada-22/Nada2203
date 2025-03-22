@@ -24,7 +24,7 @@
 
 
                     <span class="" [routerLink]="[]" [queryParams]="{category:item.id}" [queryParamsHandling]="'merge'"
-                        (click)="getCurrentCategoryFilms(item.id)" [routerLinkActiveOptions]="{exact:true}"
+                         [routerLinkActiveOptions]="{exact:true}"
                         routerLinkActive="active-item">
 
                         {{item.label}}
@@ -39,7 +39,7 @@
 
                 <div class="my-5">
 
-                    <ng-container *ngIf="currentCategoryFilms.length>0;else emptyData">
+                    <ng-container *ngIf="currentCategoryFilms;else emptyData">
                         <swiper [config]="config">
                             <ng-template swiperSlide *ngFor="let film of currentCategoryFilms">
                                 <div class="swiper-item">
@@ -51,6 +51,7 @@
                                         {{film.FilmName}}</p>
                                     <div class="film-tags">
                                         <div class="grey-badge" *ngFor="let tag of film.Tags.slice(0,3)">{{tag}}</div>
+                                        <div class="grey-badge" *ngIf="film.Tags.length>3">...</div>
                                     </div>
 
                                 </div>

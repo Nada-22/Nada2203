@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     { label: 'All Movies', routerLink: '/home' },
     { label: 'For Kids', routerLink: '/forKids' },
     { label: 'Select Branch', routerLink: '/movie/branches' },
-    
+
   ]
   moviesData!: MovieI;
   categoriesLabels!: MenuItem[];
@@ -77,12 +77,15 @@ export class HomeComponent implements OnInit {
     autoHeight: true,
 
   };
-  constructor(private _movieService: MovieService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private _movieService: MovieService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
 
     this.getAllMovies();
-    // this.getCurrentCategoryFilms();
   }
 
   getAllMovies() {
@@ -94,37 +97,39 @@ export class HomeComponent implements OnInit {
         this.getMovieCategories();
       }
     })
+
   }
 
   getMovieCategories() {
-
 
     this.categoriesLabels = this.moviesData.Categories.map(x => {
       let item = {
         label: x.CategoryName,
         id: x.CategoryID.toString(),
-        // routerLink: ['/home', { category: x.CategoryID.toString() }],
-        // queryParams: { category: x.CategoryID.toString() },
-        // routerLinkActiveOptions: { exact: true },
-        // routerLinkActive: "active-item"
-
       }
       return item;
     });
 
-    this.router.navigate([], { queryParams: { category: this.categoriesLabels[0].id } });
-    this.getCurrentCategoryFilms(Number(this.categoriesLabels[0].id))
+
+    this.getCurrentCategoryFilms();
 
   }
 
 
-  getCurrentCategoryFilms(categoryId: number) {
-    // this.route.queryParams.subscribe({
-    //   next: (params) => {
-    //     console.log(params);
-    this.currentCategoryFilms = this.moviesData?.Categories.find(x => x.CategoryID == categoryId)?.Films as FilmI[];
+  getCurrentCategoryFilms() {
 
-    //   }
-    // })
+    this.route.queryParams.subscribe({
+      next: (params) => {
+        console.log(params);
+        if (!this.moviesData) return
+        if (params['category']) {
+
+          this.currentCategoryFilms = this.moviesData?.Categories.find(x => x.CategoryID == params['category'])?.Films as FilmI[];
+        } else {
+          this.router.navigate([], { queryParams: { category: this.categoriesLabels[0].id } });
+        }
+
+      }
+    })
   }
 }
