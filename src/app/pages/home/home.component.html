@@ -39,7 +39,7 @@
 
                 <div class="my-5">
 
-                    <ng-container *ngIf="currentCategoryFilms;else emptyData">
+                    <ng-container *ngIf="currentCategoryFilms.length>0;else emptyData">
                         <swiper [config]="config">
                             <ng-template swiperSlide *ngFor="let film of currentCategoryFilms">
                                 <div class="swiper-item">

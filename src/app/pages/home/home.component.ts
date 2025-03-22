@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { shareReplay, tap } from 'rxjs';
 import { FilmI, MovieI } from 'src/app/core/interfaces/movie.interface';
+import { ConfigService } from 'src/app/services/config.service';
 import { MovieService } from 'src/app/services/movie.service';
 import SwiperCore, { A11y, Navigation, Pagination, Scrollbar, SwiperOptions } from 'swiper';
 
@@ -80,7 +81,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private _movieService: MovieService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _configService: ConfigService
   ) { }
 
   ngOnInit(): void {
@@ -90,11 +92,13 @@ export class HomeComponent implements OnInit {
 
   getAllMovies() {
 
+    this._configService.setLoading(true);
     this._movieService.moviesData$.subscribe({
       next: (data) => {
         this.moviesData = data;
         console.log(data);
         this.getMovieCategories();
+        this._configService.setLoading(false);
       }
     })
 
@@ -118,9 +122,14 @@ export class HomeComponent implements OnInit {
 
   getCurrentCategoryFilms() {
 
+    this._configService.setLoading(true);
+
     this.route.queryParams.subscribe({
       next: (params) => {
         console.log(params);
+
+        this._configService.setLoading(false);
+
         if (!this.moviesData) return
         if (params['category']) {
 

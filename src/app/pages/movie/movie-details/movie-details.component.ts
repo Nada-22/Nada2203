@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FilmI, MovieI } from 'src/app/core/interfaces/movie.interface';
 import { MovieService } from 'src/app/services/movie.service';
 import { Location } from '@angular/common';
+import { ConfigService } from 'src/app/services/config.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -15,24 +16,27 @@ export class MovieDetailsComponent implements OnInit {
   currentFilm!: FilmI;
   constructor(
     private _movieService: MovieService,
-    private router: Router,
     private route: ActivatedRoute,
-    public location: Location
+    public location: Location,
+    private _configService: ConfigService
   ) { }
 
   ngOnInit(): void {
 
     this.getAllMovies();
-    // 
+
   }
 
   getAllMovies() {
+    this._configService.setLoading(true);
 
     this._movieService.moviesData$.subscribe({
       next: (data) => {
         this.moviesData = data;
         console.log(data);
         this.getCurrentCategoryFilm();
+        this._configService.setLoading(false);
+
       }
     })
   }

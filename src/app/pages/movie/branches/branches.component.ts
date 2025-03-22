@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CinemaI } from 'src/app/core/interfaces/movie.interface';
 import { MovieService } from 'src/app/services/movie.service';
 import { Location } from '@angular/common';
+import { ConfigService } from 'src/app/services/config.service';
 @Component({
   selector: 'app-branches',
   templateUrl: './branches.component.html',
@@ -16,7 +17,8 @@ export class BranchesComponent implements OnInit {
   constructor(
     private _movieService: MovieService,
     private route: ActivatedRoute,
-    public location: Location
+    public location: Location,
+    private _configService: ConfigService
   ) { }
 
   ngOnInit(): void {
@@ -28,12 +30,12 @@ export class BranchesComponent implements OnInit {
   }
 
   getAllMovies() {
-
+    this._configService.setLoading(true);
     this._movieService.moviesData$.subscribe({
       next: (data) => {
         console.log(data);
         this.uiCinemas = this.cinemas = data.Cinemas;
-
+        this._configService.setLoading(false);
       }
     })
   }
