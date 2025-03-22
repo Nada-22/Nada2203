@@ -6,17 +6,20 @@ input {
     &.p-inputtext {
         border: 1px solid $elementBorderColor;
         border-radius: $elementRadius;
-        padding: $elementPadding;
+        // padding: $elementPadding;
         height: $elementHight;
+        background: #696969CC;
+        color: $whiteColor;
+        width: 100%;
 
         &:focus:not(:read-only),
         &:hover:not(:read-only) {
-            border: 1px solid $primaryColor;
+            border: 0;
         }
 
         &:disabled,
         &:read-only {
-            background-color: $elementDisabledBg;
+            // background-color: $elementDisabledBg;
         }
     }
 

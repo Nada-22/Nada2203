@@ -143,13 +143,15 @@ button {
 }
 
 input {
-  // font-size: 14px;
+  font-size: 14px;
   // font-weight: 500;
-  color: #202326;
-  caret-color: #5b5b5b;
+  color: $whiteColor;
+  // caret-color: #5b5b5b;
+  
   box-shadow: none !important;
   height: $elementHight;
   line-height: initial;
+  
 }
 
 

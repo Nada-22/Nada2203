@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MovieRoutingModule } from './movie-routing.module';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { BranchesComponent } from './branches/branches.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -14,7 +15,8 @@ import { BranchesComponent } from './branches/branches.component';
   ],
   imports: [
     CommonModule,
-    MovieRoutingModule
+    MovieRoutingModule,
+    SharedModule
   ]
 })
 export class MovieModule { }
