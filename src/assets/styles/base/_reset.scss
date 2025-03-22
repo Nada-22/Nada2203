@@ -26,11 +26,17 @@ html {
 body {
   font-family: ('Roboto', 'Cairo', sans-serif, 'primeicons');
   text-align: start;
-  font-size: 14px;
+  font-size: $mdText;
   @include transition(0.3s);
   background-color: $primaryBgColor;
+  color: $whiteColor;
+  min-height: 100vh;
 }
 
+.container-fluid{
+  height: 100dvh;
+  
+}
 [dir="ltr"] {
   font-family: ('Poppins', sans-serif, 'primeicons') !important;
 
