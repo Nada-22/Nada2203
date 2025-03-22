@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid home-section">
 
     <p-tabMenu [model]="items"></p-tabMenu>
 
@@ -9,6 +9,67 @@
         <div class="mt-4">
             <app-img-handler [src]="'https://image.tmdb.org/t/p/w500_and_h282_face/.jpg'" width="350px" height="200px"
                 alt="Demo image"></app-img-handler>
+        </div>
+
+
+        <div class="sections">
+            <p-tabMenu [model]="items" class="btn-tabMenu"></p-tabMenu>
+            <div class="mt-4">
+                <h4 class="text-white">Now Showing</h4>
+
+
+                <div class="my-5">
+
+                    <swiper (swiper)="onSwiper($event)" (slideChange)="onSlideChange()" [config]="config">
+                        <ng-template swiperSlide>
+                            <app-img-handler
+                                [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
+                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+
+                        </ng-template>
+                        <ng-template swiperSlide>
+                            <app-img-handler
+                                [src]="'https://media.themoviedb.org/t/p/w440_and_h660_face/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg'"
+                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+                        </ng-template>
+                        <ng-template swiperSlide>
+                            <app-img-handler
+                                [src]="'https://media.themoviedb.org/t/p/w440_and_h660_face/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg'"
+                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+
+                        </ng-template>
+                        <ng-template swiperSlide>
+                            <app-img-handler
+                                [src]="'https://media.themoviedb.org/t/p/w440_and_h660_face/o04jZs5SXhbvhqO4981W7KJXOWZ.jpg'"
+                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+
+                        </ng-template>
+                        <ng-template swiperSlide>
+                            <app-img-handler
+                                [src]="'https://media.themoviedb.org/t/p/w440_and_h660_face/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg'"
+                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+                        </ng-template>
+                        <ng-template swiperSlide>
+                            <app-img-handler
+                                [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
+                                class="img-fluid" alt="" width="240px" height="350px">
+                            </app-img-handler>
+                        </ng-template>
+                        <ng-template swiperSlide>
+                            <app-img-handler
+                                [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
+                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+
+                        </ng-template>
+                        <ng-template swiperSlide>
+                            <app-img-handler
+                                [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
+                                class="img-fluid" alt="" width="240px" height="350px">
+                            </app-img-handler>
+                        </ng-template>
+                    </swiper>
+                </div>
+            </div>
         </div>
     </div>
 </div>

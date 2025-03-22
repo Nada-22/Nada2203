@@ -1,6 +1,6 @@
 <div class="img-container">
 
-    <div class="image-wrapper" [style.min-width]="width" [style.min-height]="height">
+    <div class="image-wrapper" [style.width]="width" [style.height]="height">
         <img *ngIf="isLoading" [src]="placeholder" [alt]="alt" class="placeholder-img img-fluid" (error)="onError()"
             (load)="onLoad()" />
         <img *ngIf="!isLoading" [src]="currentSrc" [alt]="alt" (error)="onError()" (load)="onLoad()"

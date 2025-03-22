@@ -7,29 +7,59 @@
         .p-tabmenuitem {
 
             .p-menuitem-link {
-               border: 0 !important;
-               background: transparent !important;
-               color: $whiteColor !important;
-               padding: 1.25rem .75rem !important;
-               font-weight: 400 !important;
-               font-size: $mdText !important;
-               border-top-right-radius: 0;
-               border-top-left-radius: 0;
-             
-               box-shadow: none;
-               &:not(.p-disabled):focus {
-               
-                box-shadow: none !important;
+                border: 0 !important;
+                background: transparent !important;
+                color: $whiteColor !important;
+                padding: 1.25rem .75rem !important;
+                font-weight: 400 !important;
+                font-size: $mdText !important;
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+
+                box-shadow: none;
+
+                &:not(.p-disabled):focus {
+
+                    box-shadow: none !important;
+                }
             }
-           }
-           &.p-highlight {
-   
-               .p-menuitem-link {
-                   background: transparent !important;
-                   border-color: transparent !important;
-                   color: $primaryColor !important;
-               }
-           }
+
+            &.p-highlight {
+
+                .p-menuitem-link {
+                    background: transparent !important;
+                    border-color: transparent !important;
+                    color: $primaryColor !important;
+                }
+            }
         }
+    }
+}
+
+.btn-tabMenu {
+    .p-tabmenu {
+
+        &-nav {
+            gap: 1rem;
+
+            .p-tabmenuitem {
+
+                .p-menuitem-link {
+                    padding: .35rem !important;
+                    border-radius: 5px !important;
+                }
+            }
+
+            .p-highlight {
+
+                .p-menuitem-link {
+                    background: $primaryColor !important;
+
+                    color: $whiteColor !important;
+                }
+            }
+
+        }
+
     }
 }

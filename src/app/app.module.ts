@@ -8,6 +8,8 @@ import { LayoutModule } from "./layout/layout.module";
 import { HomeComponent } from './pages/home/home.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { SharedModule } from './shared/shared.module';
+import { SwiperModule } from 'swiper/angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     LayoutModule,
     TabMenuModule,
-    SharedModule
+    SharedModule,
+    SwiperModule
+    
 ],
   providers: [],
   bootstrap: [AppComponent]
