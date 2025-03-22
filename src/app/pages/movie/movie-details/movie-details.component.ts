@@ -33,7 +33,6 @@ export class MovieDetailsComponent implements OnInit {
     this._movieService.moviesData$.subscribe({
       next: (data) => {
         this.moviesData = data;
-        console.log(data);
         this.getCurrentCategoryFilm();
         this._configService.setLoading(false);
 
@@ -44,11 +43,8 @@ export class MovieDetailsComponent implements OnInit {
   getCurrentCategoryFilm() {
     this.route.queryParams.subscribe({
       next: (params) => {
-        console.log(params);
         let category = this.moviesData?.Categories.find(x => x.CategoryID == params['category']);
         this.currentFilm = category?.Films.find(x => x.FilmID == params['film']) as FilmI;
-
-        // this.currentFilm = this.moviesData?.Categories.find(x => x.CategoryID == categoryId)?.Films as FilmI[];
 
       }
     })

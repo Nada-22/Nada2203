@@ -96,7 +96,7 @@ export class HomeComponent implements OnInit {
     this._movieService.moviesData$.subscribe({
       next: (data) => {
         this.moviesData = data;
-        console.log(data);
+    
         this.getMovieCategories();
         this._configService.setLoading(false);
       }
@@ -126,7 +126,7 @@ export class HomeComponent implements OnInit {
 
     this.route.queryParams.subscribe({
       next: (params) => {
-        console.log(params);
+ 
 
         this._configService.setLoading(false);
 

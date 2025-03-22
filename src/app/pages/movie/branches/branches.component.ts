@@ -25,15 +25,13 @@ export class BranchesComponent implements OnInit {
 
     this.getAllMovies();
 
-    console.log(this.route.pathFromRoot);
-
   }
 
   getAllMovies() {
     this._configService.setLoading(true);
     this._movieService.moviesData$.subscribe({
       next: (data) => {
-        console.log(data);
+       
         this.uiCinemas = this.cinemas = data.Cinemas;
         this._configService.setLoading(false);
       }
