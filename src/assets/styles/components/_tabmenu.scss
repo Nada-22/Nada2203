@@ -47,17 +47,33 @@
                 .p-menuitem-link {
                     padding: .35rem !important;
                     border-radius: 5px !important;
+                    span{
+
+                        font-size: $smText;
+                        white-space: nowrap;
+                        &.active-item {
+    
+                            background: $primaryColor !important;
+                            color: $whiteColor !important;
+                            padding: .15rem !important;
+                            border-radius: 5px !important;
+                            font-size: $smText;
+    
+                        }
+                    }
                 }
             }
 
-            .p-highlight {
+            // .p-highlight {
 
-                .p-menuitem-link {
-                    background: $primaryColor !important;
+            //     .p-menuitem-link {
+            //         background: $primaryColor !important;
 
-                    color: $whiteColor !important;
-                }
-            }
+            //         color: $whiteColor !important;
+
+
+            //     }
+            // }
 
         }
 

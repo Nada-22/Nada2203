@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-branches',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BranchesComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(private _movieService:MovieService) { }
 
   ngOnInit(): void {
+
+    this.getAllMovies()
+  }
+
+  getAllMovies(){
+
+    this._movieService.moviesData$.subscribe({
+      next: (data) => {
+        console.log(data);
+        
+      }
+    })
   }
 
 }

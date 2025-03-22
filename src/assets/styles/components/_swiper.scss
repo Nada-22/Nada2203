@@ -3,9 +3,9 @@
     &-button-next,
     &-button-prev {
 
-        border-radius: 50%;
+        border-radius: 40%;
 
-        // background-color: $primaryBgColor;
+        background-color: $thirdColor;
         // opacity: .4;
         &::after {
             font-size: $mdText !important;
@@ -27,8 +27,11 @@
     &-slide-active {
         // transform: scale(1.6);
         /* Zoom in by 10% */
-        z-index: 2;
-        border: 1px solid $primaryColor;
-        border-radius: 8px;
+        img{
+
+            z-index: 2;
+            border: 1px solid $primaryColor;
+            border-radius: 8px;
+        }
     }
 }

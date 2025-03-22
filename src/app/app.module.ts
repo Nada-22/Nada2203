@@ -9,12 +9,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { SharedModule } from './shared/shared.module';
 import { SwiperModule } from 'swiper/angular';
-
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -22,9 +22,10 @@ import { SwiperModule } from 'swiper/angular';
     LayoutModule,
     TabMenuModule,
     SharedModule,
-    SwiperModule
-    
-],
+    SwiperModule,
+    HttpClientModule
+
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

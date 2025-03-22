@@ -1,54 +1,27 @@
 .banner-wrap {
     position: relative;
-    // height: 20rem;
-    // background-color: #363635;
-    // box-shadow: 0px 0px 104px 14px rgba(0, 0, 0, 0.62) inset;
-    // -webkit-box-shadow: 0px 0px 104px 14px rgba(0, 0, 0, 0.62) inset;
-    // background-repeat: no-repeat;
-    // background-position: center;
-    // background-origin: border-box;
-
-
-    // &::before {
-    //     content: " ";
-    //     display: block;
-    //     position: absolute;
-    //     left: 0;
-    //     top: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     opacity: 0.9;
-    //     background-image: url('https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg');
-    //     background-repeat: no-repeat;
-    //     background-position: right;
-    // }
-
-    .demo-content {
-        position: relative;
-
+    .banner-content {
+    
+        position: absolute;
+        top: 0rem;
+        color: white;
+        width: 100%;
+        height: 100%;
+        padding: 1rem 2rem;
+        display: grid;
+    
+    
+        .banner-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+    
+        }
     }
 
 }
 
-.banner-content {
-
-    position: absolute;
-    top: 0rem;
-    color: white;
-    width: 100%;
-    height: 100%;
-    padding: 1rem 2rem;
-    display: grid;
-
-
-    .banner-actions {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-
-    }
-}
 
 .movie-content {
     margin-block: 1rem;

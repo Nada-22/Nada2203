@@ -1,4 +1,4 @@
-<div class="container-fluid home-section">
+<div class="container-fluid home-section" *ngIf="!!moviesData">
 
     <p-tabMenu [model]="items"></p-tabMenu>
 
@@ -6,69 +6,65 @@
     <div class="mt-5">
         <h4 class="text-white">Coming Soon</h4>
 
-        <div class="mt-4">
-            <app-img-handler [src]="'https://image.tmdb.org/t/p/w500_and_h282_face/.jpg'" width="350px" height="200px"
+        <div class="banner-wrap">
+            <app-img-handler [src]="moviesData.ComingSoonBanner" width="350px" height="200px"
                 alt="Demo image"></app-img-handler>
+
+            <div class="banner-content">
+
+                <p>{{moviesData.ComingSoonTitle}}</p>
+            </div>
         </div>
 
 
         <div class="sections">
-            <p-tabMenu [model]="items" class="btn-tabMenu"></p-tabMenu>
+            <p-tabMenu [model]="categoriesLabels" class="btn-tabMenu">
+
+                <ng-template pTemplate="item" let-item>
+
+
+                    <span class="" [routerLink]="[]" [queryParams]="{category:item.id}"
+                        (click)="getCurrentCategoryFilms(item.id)" [routerLinkActiveOptions]="{exact:true}"
+                        routerLinkActive="active-item">
+
+                        {{item.label}}
+                    </span>
+
+
+                </ng-template>
+            </p-tabMenu>
             <div class="mt-4">
                 <h4 class="text-white">Now Showing</h4>
 
 
                 <div class="my-5">
 
-                    <swiper (swiper)="onSwiper($event)" (slideChange)="onSlideChange()" [config]="config">
-                        <ng-template swiperSlide>
-                            <app-img-handler routerLink="/movie/details/1"
-                                [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
-                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+                    <ng-container *ngIf="currentCategoryFilms.length>0;else emptyData">
+                        <swiper [config]="config">
+                            <ng-template swiperSlide *ngFor="let film of currentCategoryFilms">
+                                <div class="swiper-item">
+                                    <app-img-handler [src]="film.FilmImage" class="img-fluid" alt="" width="240px"
+                                        height="350px">
+                                    </app-img-handler>
+                                    <p class="cursor-pointer" [routerLink]="['/movie/details',film.FilmID]">
+                                        {{film.FilmName}}</p>
+                                    <div class="film-tags">
+                                        <div class="grey-badge" *ngFor="let tag of film.Tags.slice(0,3)">{{tag}}</div>
+                                    </div>
 
-                        </ng-template>
-                        <ng-template swiperSlide>
-                            <app-img-handler
-                                [src]="'https://media.themoviedb.org/t/p/w440_and_h660_face/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg'"
-                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
-                        </ng-template>
-                        <ng-template swiperSlide>
-                            <app-img-handler
-                                [src]="'https://media.themoviedb.org/t/p/w440_and_h660_face/wTnV3PCVW5O92JMrFvvrRcV39RU.jpg'"
-                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+                                </div>
 
-                        </ng-template>
-                        <ng-template swiperSlide>
-                            <app-img-handler
-                                [src]="'https://media.themoviedb.org/t/p/w440_and_h660_face/o04jZs5SXhbvhqO4981W7KJXOWZ.jpg'"
-                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+                            </ng-template>
 
-                        </ng-template>
-                        <ng-template swiperSlide>
-                            <app-img-handler
-                                [src]="'https://media.themoviedb.org/t/p/w440_and_h660_face/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg'"
-                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
-                        </ng-template>
-                        <ng-template swiperSlide>
-                            <app-img-handler
-                                [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
-                                class="img-fluid" alt="" width="240px" height="350px">
-                            </app-img-handler>
-                        </ng-template>
-                        <ng-template swiperSlide>
-                            <app-img-handler
-                                [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
-                                class="img-fluid" alt="" width="240px" height="350px"></app-img-handler>
+                        </swiper>
 
-                        </ng-template>
-                        <ng-template swiperSlide>
-                            <app-img-handler
-                                [src]="'https://media.themoviedb.org/t/p/w500_and_h282_face/gPJZKiqBU5OVPhalvNDkU6NF8jQ.jpg'"
-                                class="img-fluid" alt="" width="240px" height="350px">
-                            </app-img-handler>
-                        </ng-template>
-                    </swiper>
+                    </ng-container>
+                    <ng-template #emptyData>
+                        <app-empty-box></app-empty-box>
+                    </ng-template>
                 </div>
+                <br>
+                <br>
             </div>
         </div>
     </div>
