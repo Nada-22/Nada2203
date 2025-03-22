@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ImgHandlerComponent } from './components/img-handler/img-handler.component';
 
 import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 import { EmptyBoxComponent } from './components/empty-box/empty-box.component';
 const components = [
   ImgHandlerComponent,
@@ -12,16 +13,18 @@ const components = [
 @NgModule({
   declarations: [
     ...components,
-    
+
   ],
   imports: [
     CommonModule,
-    InputTextModule
-    
+    InputTextModule,
+    ButtonModule
+
   ],
   exports: [
     ...components,
-    InputTextModule
+    InputTextModule,
+    ButtonModule
   ]
 })
 export class SharedModule { }

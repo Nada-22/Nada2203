@@ -21,8 +21,11 @@
 
   color: $color !important;
 
-  .btn_label {
+  .btn_label,
+  .p-button-label {
     color: $color !important;
+    font-weight: 500;
+    font-size: 14px;
   }
 
   &:disabled {
@@ -39,14 +42,22 @@
     }
 
   }
+
+  &:hover {
+    background-color: $bg;
+    color: $color !important;
+    border-color: $bg;
+
+
+  }
 }
 
 
-.cus_btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+.p-button {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // gap: 8px;
   @include borderRadius($elementRadius);
   padding: 12px 16px;
   border: 1px solid transparent;
